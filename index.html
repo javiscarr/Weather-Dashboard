@@ -23,9 +23,16 @@
     <div class="container">
       <div class="row">
         <div class="col-4 bg-light">
-          <p class="input-group mb-3"></p>
-
+          <p class="input-bundle mb-3"></p>
+            <input id="city-input" type="text" class="form-control" placeholder="Enter City Name">
+            <div class="input-bundle-append">
+              <button class="btn btn-warning" type="button" id="search-button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
         </div>
+        <button class="btn btn-warning mb-3" type="button" id="clear-history">Clear History</button>
+      <form id="history"></form>
       </div>
     </div>
 
