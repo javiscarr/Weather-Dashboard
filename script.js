@@ -48,8 +48,30 @@ function gatherWeather(cityName) {
             uvindex.innerHTML = response.data[0].value;
             currentUVEl.innerHTML = "UV Index: ";
             currentUVEl.append(uvindex);
-        })
+        });
 
+        let cityID = response.data.id;
+        let forecastQuery = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
+        axios.get(forecastQuery)
+        .then(function(response){
+
+            console.log(respone);
+            const forecastEls = document.querySelectorAll(".forecast");
+            for (i=0; i<forecastEl.length; i++){
+                forecastEls[i].innerHTML = "";
+                const forecastIndex = i*8 = 4;
+                const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                const forecastDay = forecastDate.getDate();
+                const forecastMonth = forecastDate.getMonth();
+                const forecastYear = forecastDate.getFullYear();
+                const forecastDateEl = document.createElement("p");
+                forecastDateEl.setAttribute("class", "mt-3 mb-o forecast-date");
+                forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+                forecastEls[i].append(forecastDateEl);
+                const forecastWeatherEl = document.createElement("img");
+                forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon +"@2x.png");
+            }
+        })
      })
 
 }
