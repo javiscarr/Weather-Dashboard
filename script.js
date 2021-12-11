@@ -85,3 +85,15 @@ function gatherWeather(cityName) {
 
 }
 
+searchEl.addEventListener("click", function(){
+    const searchExpression = inputEl.value;
+    gatherWeather(searchExpression);
+    searchHistory.push(searchExpression);
+    localStorage.setItem("search", JSON.stringify(searchHistory));
+    renderSearchHistory();
+})
+
+clearEl.addEventListener("click", function(){
+    searchHistory = [];
+    renderSearchHistory();
+})
