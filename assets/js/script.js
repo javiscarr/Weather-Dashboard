@@ -40,8 +40,10 @@ function gatherWeather(cityName) {
 
         let lat = response.data.coord.lat;
         let lon = response.data.coord.long;
-        let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon" + lon + "&appid=" + APIKey + "&cnt=1";
-        axios.get(UVQueryURl)
+
+
+        let UVQuery = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon" + lon + "&appid=" + APIKey + "&cnt=1";
+        axios.get(UVQuery)
         .then(function(response){
             let uvindex = document.createElement("span");
             uvindex.setAttribute("class", "badge badge-danger");
@@ -57,7 +59,7 @@ function gatherWeather(cityName) {
 
             console.log(response);
             const forecastEls = document.querySelectorAll(".forecast");
-            for (i=0; i<forecastEl.length; i++){
+            for (i=0; i < forecastEls.length; i++){
                 forecastEls[i].innerHTML = "";
                 const forecastIndex = i * 8 + 4;
                 const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
