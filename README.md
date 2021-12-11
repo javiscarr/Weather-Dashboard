@@ -33,13 +33,14 @@ This is a weather dashboard that gives the user the ability to check the weather
 
 ## Screenshots
 
+
+![weatherDashboard](assets/images/clearData.JPG)
+
 ![weatherDashboard](assets/images/citySearch1.JPG)
 
 ![weatherDashboard](assets/images/citySearch2.JPG)
 
 ![weatherDashboard](assets/images/citySearch3.JPG)
-
-![weatherDashboard](assets/images/clearData.JPG)
 
 ## 
 
