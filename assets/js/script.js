@@ -38,19 +38,7 @@ function gatherWeather(cityName) {
         currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
         currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
-        let lat = response.data.coord.lat;
-        let lon = response.data.coord.lon;
-
-
-        let UVQuery = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon" + lon + "&appid=" + APIKey + "&cnt=1";
-        axios.get(UVQuery)
-        .then(function(response){
-            let uvindex = document.createElement("span");
-            uvindex.setAttribute("class", "badge badge-danger");
-            uvindex.innerHTML = response.data[0].value;
-            currentUVEl.innerHTML = "UV Index: ";
-            currentUVEl.append(uvindex);
-        });
+     
 
         let cityID = response.data.id;
         let forecastQuery = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
