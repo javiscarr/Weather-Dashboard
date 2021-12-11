@@ -20,7 +20,7 @@ const APIKey = "96c66bd19cbc57cd7d76c0b994ba1fee";
 function gatherWeather(cityName) {
 
     
-    let queryURL = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey;
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIKey;
     axios.get(queryURL)
     .then(function(response){
         console.log(response);
@@ -34,7 +34,7 @@ function gatherWeather(cityName) {
         let weatherImg = response.data.weather[0].icon;
         currentPicEl.setAttribute("src","https://openweathermap.org/img/wn/" + weatherImg + "@2x.png");
         currentPicEl.setAttribute("alt", response.data.weather[0].description);
-        currentTempEl.innerHTML = "Temperature: " + degree(response.data.list[forecastIndex].main.temp) + " &#176F"; // &#176F converts degree units
+        currentTempEl.innerHTML = "Temperature: " + degree(response.data.main.temp) + " &#176F"; // &#176F converts degree units
         currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
         currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
@@ -59,7 +59,7 @@ function gatherWeather(cityName) {
             const forecastEls = document.querySelectorAll(".forecast");
             for (i=0; i<forecastEl.length; i++){
                 forecastEls[i].innerHTML = "";
-                const forecastIndex = i*8 + 4;
+                const forecastIndex = i * 8 + 4;
                 const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
                 const forecastDay = forecastDate.getDate();
                 const forecastMonth = forecastDate.getMonth();
