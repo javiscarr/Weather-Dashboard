@@ -74,7 +74,7 @@ function gatherWeather(cityName) {
                 forecastEls[i].append(forecastWeatherEl);
                 const forecastTempEl = document.createElement("p");
                 forecastEl.innerHTML = "Temp: " + degree(response.data.list[forecastIndex].main.temp) + "&#176F";
-                forecastEls[i]append(forecastTempEl);
+                forecastEls[i].append(forecastTempEl);
                 const forecastHumidityEl = document.createElement("p");
                 forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
                 forecastEls[i].append(forecastHumidityEl);
@@ -97,3 +97,30 @@ clearEl.addEventListener("click", function(){
     searchHistory = [];
     renderSearchHistory();
 })
+
+function degree(K){
+    return Math.floor((K - 273.15) * 1.8 + 32);
+}
+
+function renderSearchHistory(){
+    historyEl.innerHTML = "";
+    for (let i=0; i < searchHistory.length; i++){
+        const historyItem = document.createElement("input");
+
+        historyItem.setAttribute("type", "text");
+        historyItem.setAttribute("readonly", true);
+        historyItem.setAttribute("class", "form-control d-block bg white");
+        historyItem.setAttribute("value", searchHistory[i]);
+        historyItem.addEventListener("click", function() {
+            gatherWeather(historyItem.value);
+
+        })
+
+        historyEl.append(historyItem);
+    }
+}
+
+    renderSearchHistory();
+    if (searchHistory.length > 0) {
+        gatherWeather(searchHistory[searchHistory.length - 1]);
+    }
