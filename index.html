@@ -16,22 +16,37 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark justify-content-center">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info justify-content-center">
       <h3 class="text-light font-weight-bold">Weather Dashboard</h3>
     </nav>
+    <br>
+    <br>
+  
 
-    <div class="container">
+   <!-- <div class="container"> -->
       <div class="row">
-        <div class="col-4 bg-light">
-          <p class="input-bundle mb-3"></p>
-            <input id="city-input" type="text" class="form-control" placeholder="Enter City Name">
+       <div class="card col-lg-8 bg-light" id="city-input-container">
+          <div class="input-bundle mb-3">
+            <input id="city-input" type="text" class="form-control pt-2" placeholder="Enter City Name">
             <div class="input-bundle-append">
-              <button class="btn btn-warning" type="button" id="search-btn">
+              <button class="btn btn-info" type="button" id="search-btn">
                 <i class="fas fa-search"></i>
               </button>
             </div>
         </div>
-        <button class="btn btn-warning mb-3" type="button" id="clear-history">Clear History</button>
+        <div class="row">
+          <div class="col-md-12 h-100 pb-3" id="search-history-container">
+            <div class="card w-100">
+              <ul
+                class="list-group list-group-flush"
+                id="search-history"
+              ></ul>
+            </div>
+            <div
+              class="d-flex justify-content-end pt-3"
+              id="clear-history-container"
+            >
+        <button class="btn btn-info mb-3" type="button" id="clear-history">Clear History</button>
       <form id="history"></form>
       </div>
       <div class="col-8">
@@ -58,10 +73,6 @@
                 <p id="wind-speed"></p>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <p id="uv-index"></p>
-              </div>
             </div>
           </div>
         </div>
@@ -71,11 +82,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-          <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-          <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-          <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
-          <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+          <div class="col forecast bg-info text-white ml-3 mb-3 rounded"></div>
+          <div class="col forecast bg-info text-white ml-3 mb-3 rounded"></div>
+          <div class="col forecast bg-info text-white ml-3 mb-3 rounded"></div>
+          <div class="col forecast bg-info text-white ml-3 mb-3 rounded"></div>
+          <div class="col forecast bg-info text-white ml-3 mb-3 rounded"></div>
         </div>
       </div>
     </div>

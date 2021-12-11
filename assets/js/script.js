@@ -41,8 +41,8 @@ function gatherWeather(cityName) {
      
 
         let cityID = response.data.id;
-        let forecastQuery = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
-        axios.get(forecastQuery)
+        let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
+        axios.get(forecastQueryURL)
         .then(function(response){
 
             console.log(response);
@@ -99,7 +99,7 @@ function renderSearchHistory(){
 
         historyItem.setAttribute("type", "text");
         historyItem.setAttribute("readonly", true);
-        historyItem.setAttribute("class", "form-control d-block bg white");
+        historyItem.setAttribute("class", "form-control d-block bg green");
         historyItem.setAttribute("value", searchHistory[i]);
         historyItem.addEventListener("click", function() {
             gatherWeather(historyItem.value);
