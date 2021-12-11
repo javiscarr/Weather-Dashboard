@@ -124,3 +124,8 @@ function renderSearchHistory(){
     if (searchHistory.length > 0) {
         gatherWeather(searchHistory[searchHistory.length - 1]);
     }
+
+
+
+}
+init();
