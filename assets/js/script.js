@@ -55,11 +55,11 @@ function gatherWeather(cityName) {
         axios.get(forecastQuery)
         .then(function(response){
 
-            console.log(respone);
+            console.log(response);
             const forecastEls = document.querySelectorAll(".forecast");
             for (i=0; i<forecastEl.length; i++){
                 forecastEls[i].innerHTML = "";
-                const forecastIndex = i*8 = 4;
+                const forecastIndex = i*8 + 4;
                 const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
                 const forecastDay = forecastDate.getDate();
                 const forecastMonth = forecastDate.getMonth();
