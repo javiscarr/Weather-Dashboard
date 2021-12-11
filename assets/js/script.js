@@ -63,7 +63,7 @@ function gatherWeather(cityName) {
                 forecastDateEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
                 forecastEls[i].append(forecastWeatherEl);
                 const forecastTempEl = document.createElement("p");
-                forecastEls.innerHTML = "Temp: " + degree(response.data.list[forecastIndex].main.temp) + "&#176F";
+                forecastTempEl.innerHTML = "Temp: " + degree(response.data.list[forecastIndex].main.temp) + "&#176F";
                 forecastEls[i].append(forecastTempEl);
                 const forecastHumidityEl = document.createElement("p");
                 forecastHumidityEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
