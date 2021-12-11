@@ -39,7 +39,7 @@ function gatherWeather(cityName) {
         currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
         let lat = response.data.coord.lat;
-        let lon = response.data.coord.long;
+        let lon = response.data.coord.lon;
 
 
         let UVQuery = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon" + lon + "&appid=" + APIKey + "&cnt=1";
@@ -64,7 +64,7 @@ function gatherWeather(cityName) {
                 const forecastIndex = i * 8 + 4;
                 const forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
                 const forecastDay = forecastDate.getDate();
-                const forecastMonth = forecastDate.getMonth();
+                const forecastMonth = forecastDate.getMonth() + 1;
                 const forecastYear = forecastDate.getFullYear();
                 const forecastDateEl = document.createElement("p");
                 forecastDateEl.setAttribute("class", "mt-3 mb-o forecast-date");
